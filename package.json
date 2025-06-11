@@ -11,8 +11,10 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.8",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.8",
