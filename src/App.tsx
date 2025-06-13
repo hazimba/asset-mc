@@ -12,6 +12,9 @@ const App = () => {
         <a href="/">Dashboard</a>
         <a href="/home">Home</a>
         <a href="/manage">Manage</a>
+        <a href="/settings">Settings</a>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
       </div>
       <Router>
         <Routes>
