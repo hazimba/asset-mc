@@ -1,19 +1,25 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import HomePage from "./components/home";
+import Mainpage from './components/mainpage';
 import './output.css';
-import { Typography } from 'antd';
-
-const { Text } = Typography;
-
+import Manage from "./components/manage";
 
 const App = () => {
   return (
-    <div className="content">
-      <h1 className="text-2xl font-bold">Rsbuild with React</h1>
-      <div className="text-red-600 text-2xl mt-10">
-        Start building amazing things with Rsbuild.
-      </div>
-      <Text copyable>
-        This is a simple example of using Rsbuild with React and Tailwind CSS.
-      </Text>
+    <div className="flex">
+    <div className="flex flex-col items-center justify-center w-64 bg-gray-100 min-h-screen">
+      <h2 className="text-xl font-bold">Sidebar</h2>
+      <a href="/">Dashboard</a>
+      <a href="/home">Home</a>
+      <a href="/manage">Manage</a>
+    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Mainpage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/manage" element={<Manage />} />
+      </Routes>
+    </Router>
     </div>
   );
 };
