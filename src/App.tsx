@@ -3,6 +3,7 @@ import HomePage from './components/home';
 import Mainpage from './components/mainpage';
 import './output.css';
 import Manage from './components/manage';
+import Profile from './components/profile';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/" element={<Mainpage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/manage" element={<Manage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </div>
