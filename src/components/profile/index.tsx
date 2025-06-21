@@ -22,6 +22,10 @@ const Profile = () => {
       label: "Activity",
       children: <Text>Activity Content</Text>,
     },
+    {
+      key: "4",
+      label: "New User"
+    }
   ];
 
   return (
