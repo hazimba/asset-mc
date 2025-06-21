@@ -1,5 +1,6 @@
 import { Tabs, TabsProps, Typography } from "antd";
-import InfoPersonal from "./infoPersonal";
+import UserInformation from "./UserInformation.tsx";
+import Copyright from "../../shared/copyright";
 
 const { Text, Title } = Typography;
 
@@ -9,7 +10,7 @@ const Profile = () => {
     {
       key: "1",
       label: "Profile",
-      children: <InfoPersonal />
+      children: <UserInformation />
     },
     {
       key: "2",
@@ -25,16 +26,15 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-gray-300">
-      <div className="bg-white p-6 rounded-lg shadow-md w-3/4 h-1/2 overflow-y-scroll">
-        <Title level={2} className="font-semibold">Profile</Title>
-        <>
-          <Tabs
-            defaultActiveKey="1"
-            items={items}
-            onChange={(key) => console.log(key)}
-          />
-        </>
+      <div className="w-3/4 p-6 bg-white rounded-lg shadow-md">
+        <Title level={2} className="text-center mb-6">User Profile</Title>
+        <Tabs
+          defaultActiveKey="1"
+          items={items}
+          className="w-full"
+        />
       </div>
+      <Copyright />
     </div>
   );
 };
