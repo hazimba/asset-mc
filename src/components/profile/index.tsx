@@ -1,6 +1,7 @@
 import { Tabs, TabsProps, Typography } from "antd";
 import UserInformation from "./UserInformation.tsx";
 import Copyright from "../../shared/copyright";
+import AddNewUser from "./AddNewUser.tsx";
 
 const { Text, Title } = Typography;
 
@@ -24,7 +25,8 @@ const Profile = () => {
     },
     {
       key: "4",
-      label: "New User"
+      label: "Add New User",
+      children: <AddNewUser />
     }
   ];
 
