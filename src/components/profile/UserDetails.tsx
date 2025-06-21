@@ -113,7 +113,7 @@ const UserDetailsForm = () => {
             <Form.Item className="mb-0 w-full">
               <Row gutter={8}>
                 <Col flex="auto">
-                  <Button type="primary" onClick={() => setIsEditMode(true)}>
+                  <Button color="default" variant="filled" className='w-full' onClick={() => setIsEditMode(true)}>
                     Edit
                   </Button>
                 </Col>

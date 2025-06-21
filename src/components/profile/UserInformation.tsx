@@ -33,10 +33,7 @@ const InfoPersonal = () => {
           </div>
         </div>
       </div>
-
-      
-        <UserDetails />
-      
+      <UserDetails />
     </div>
   );
 };
