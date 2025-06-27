@@ -1,20 +1,71 @@
 import { Button, Col, Form, Input, message, Row } from 'antd';
 import { Employee } from '../../shared/types';
 import axios from 'axios';
+import { useEffect } from 'react';
 
-const AddNewUser = () => {
+interface AddNewUserProps {
+  setOpenModal?: (open: boolean) => void;
+  id?: string; // Optional, if you want to pass an ID for editing
+  onSuccess?: () => void; // Optional callback for success
+  onError?: (error: any) => void; // Optional callback for error handling
+  isEditMode?: boolean; // Optional prop to determine if it's in edit mode
+  initialValues?: Employee; // Optional initial values for the form
+  onFetchEmployee?: (id: string) => Promise<Employee>; // Optional function to fetch
+}
+
+const AddNewUser = ({ setOpenModal, id, onSuccess }: AddNewUserProps) => {
   const [form] = Form.useForm();
+  const isEditMode = Boolean(id);
+  // to fetch after create user
+  console.log('isEditMode:', isEditMode);
+  useEffect(() => {
+    if (isEditMode && id) {
+      const fetchEmployee = async () => {
+        try {
+          const { data } = await axios.get(
+            `http://localhost:8000/api/mc/getEmployee/${id}`,
+          );
+          form.setFieldsValue(data);
+        } catch (err) {
+          console.error(err);
+          message.error('Error fetching employee');
+        }
+      };
+      fetchEmployee();
+    }
+  }, [id, isEditMode, form, setOpenModal]);
+
+  const fetchEmployee = async () => {
+    try {
+      axios.get(`http://localhost:8000/api/mc/getEmployee/`);
+    } catch (error) {
+      console.error('Error fetching employee:', error);
+      message.error('Error fetching employee');
+    }
+  };
+
+  useEffect(() => {
+    fetchEmployee();
+  }, [id, isEditMode, form]);
 
   const handleFinish = async (values: Employee) => {
     try {
-      await axios.post(
-        `http://localhost:8000/api/mc/addEmployee`,
-        values,
-      );
-      message.success('Employee updated');
+      if (isEditMode && id) {
+        await axios.patch(
+          `http://localhost:8000/api/mc/updateEmployee/${id}`,
+          values,
+        );
+        message.success('Employee updated');
+      } else {
+        message.success('Employee added');
+        await axios.post(`http://localhost:8000/api/mc/addEmployee`, values);
+      }
+      form.resetFields();
+      setOpenModal?.(false);
+      onSuccess?.();
     } catch (err) {
       console.error(err);
-      message.error('Error updating employee');
+      message.error('Error add employee');
     }
   };
 
