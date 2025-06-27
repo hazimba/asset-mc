@@ -1,7 +1,7 @@
-import { Form, Input, Button, Row, Col, message } from 'antd';
+import { Form, Input, Button, Row, Col, message, notification } from 'antd';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { Employee } from '../../shared/types';
+import { Employee } from '../../../shared/types';
 
 const UserDetailsForm = () => {
   const [form] = Form.useForm();
@@ -113,7 +113,12 @@ const UserDetailsForm = () => {
             <Form.Item className="mb-0 w-full">
               <Row gutter={8}>
                 <Col flex="auto">
-                  <Button color="default" variant="filled" className='w-full' onClick={() => setIsEditMode(true)}>
+                  <Button
+                    color="default"
+                    variant="filled"
+                    className="w-full"
+                    onClick={() => setIsEditMode(true)}
+                  >
                     Edit
                   </Button>
                 </Col>

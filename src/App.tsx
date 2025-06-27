@@ -11,11 +11,11 @@ const App = () => {
       <div className="flex flex-col items-center justify-center w-64 bg-gray-100 min-h-screen">
         <h2 className="text-xl font-bold">Sidebar</h2>
         <a href="/">Dashboard</a>
-        <a href="/home">Home</a>
+        {/* <a href="/home">Home</a> */}
         <a href="/manage">Manage</a>
-        <a href="/settings">Settings</a>
+        {/* <a href="/settings">Settings</a> */}
         <a href="/profile">Profile</a>
-        <a href="/logout">Logout</a>
+        {/* <a href="/logout">Logout</a> */}
       </div>
       <Router>
         <Routes>

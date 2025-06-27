@@ -1,5 +1,5 @@
 import { Tabs, TabsProps, Typography } from "antd";
-import UserInformation from "./UserInformation.tsx";
+import UserInformation from "./user/UserInformation.tsx";
 import Copyright from "../../shared/copyright";
 import AddNewUser from "./AddNewUser.tsx";
 
